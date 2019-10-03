@@ -208,8 +208,32 @@ firebase.initializeApp({
 
 var db = firebase.firestore();
 </script>
+<script >
+function submit() {
 
-<script src="https://catisnear.000webhostapp.com/script.js">  </script>
+                    var first_name = document.getElementById("first").value;
+                    var last_name = document.getElementById("last").value;
+                    var email = document.getElementById("email").value;
+                    var mobile_no = document.getElementById("number").value;
+                    var type = document.getElementById("type").value;
+                    var describe = document.getElementById("description").value;
+                    db.collection("feedback").add({
+                        first_name: first_name,
+                        last_name: last_name,
+                        email: email,
+                        mobile_no: mobile_no,
+                        type: type,
+                        describe: describe
+                    })
+                    .then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+window.location.replace("prateek-simplymad.github.io");
+                }</script>
+
 </body>
 
 </html>
